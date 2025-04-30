@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GenEx: Generating an Explorable World</title>
+
+  <link rel="icon" type="image/png" href="pics/assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Pannellum -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+</head>
+<body>
+    <script>console.log("Howdy! Inline script ran.");</script>  
+  <header>
+    <img id="logo" src="pics/assets/logo.png" alt="logo">
+    <span id="title">GenEx: Generating an Explorable World</span>
+  </header>
+
+  <div id="container">
+    <section id="left">
+      <h3>Adventure&nbsp;from&nbsp;Text</h3>
+      <textarea id="prompt" rows="3">visiting an amusement park about harry potter</textarea>
+      <button id="promptBtn">Generate&nbsp;from&nbsp;Text</button>
+
+      <hr class="dashed">
+
+      <h3>Explore&nbsp;into&nbsp;an&nbsp;Image</h3>
+      <label id="dropZone" class="drop-zone">
+        <input id="fileInput" type="file" accept="image/*" hidden>
+        <img id="preview" alt="">
+        <span id="dzText">Drag & drop or click to select</span>
+      </label>
+
+      <div id="examplesWrap">
+        <div id="examples">
+          <img src="pics/example_inputs/0.png" data-src="pics/example_inputs/0.png">
+          <img src="pics/example_inputs/1.png" data-src="pics/example_inputs/1.png">
+          <img src="pics/example_inputs/2.png" data-src="pics/example_inputs/2.png">
+          <img src="pics/example_inputs/3.png" data-src="pics/example_inputs/3.png">
+          <img src="pics/example_inputs/4.png" data-src="pics/example_inputs/4.png">
+          <img src="pics/example_inputs/5.png" data-src="pics/example_inputs/5.png">
+        </div>
+      </div>
+      <button id="imageBtn" disabled>Generate&nbsp;from&nbsp;Image</button>
+
+      <hr class="dashed">
+
+      <div id="statusLine">
+        <span id="statusText">Idle</span>
+        <span id="timer">00:00</span>
+      </div>
+      <pre id="log"></pre>
+    </section>
+
+    <section id="right">
+      <div class="viewer-wrap">
+        <div id="panorama" class="viewer">
+          <span id="placeholder">Panorama will appear here…</span>
+        </div>
+      </div>
+
+      <div id="exploreControls">
+        <button id="exploreBtn" disabled>Explore&nbsp;Forward</button>
+        <input id="frameSlider" type="range" min="0" max="0" value="0" style="display:none">
+      </div>
+    </section>
+  </div>
+
+  <script src="generate.js"></script>
+  <script src="explore.js"></script>
+</body>
+</html>
